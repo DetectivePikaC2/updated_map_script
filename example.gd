@@ -2,6 +2,11 @@ extends Node3D
 
 var flare_timer = 0
 
+@onready var player = $Player
+
+func _physics_process(delta):
+	get_tree().call_group("enemy", "update_target_location", player.global_transform.origin)
+
 func _process(delta):
 	if flare_timer > 0:
 		flare_timer += 1
@@ -27,5 +32,20 @@ func battery_rev_complete():
 	check_socket()
 
 func blue_panel_finish():
-	if Worker.blue_scanner_number == 0:
-		$objects/Door_Basic.locked = false
+	pass
+func green_panel_finish():
+	pass
+
+func check_panels():
+	pass
+
+func lever_flipped_up():
+	pass
+func lever_flipped_down():
+	pass
+
+func keypad_finish():
+	pass
+
+func vhs_finished():
+	pass
